@@ -2,9 +2,9 @@
 
 class Person{
 
-    public function __construct($namePara){
+    public function __construct($namePara, $pwPara){
         $this->name = $namePara;
-        // $this->password = $pwPara;
+        $this->password = $pwPara;
     }
 
     public $name;
@@ -12,38 +12,37 @@ class Person{
     private $password;
 
     public function studentName(){
-        echo 'The student Name is '.$this->name.'<br>';
+        echo 'The Student Name is '.$this->name.'<br>';
     }
 
     protected function studentAge(){
-        echo 'The student Name is '.$this->age.'<br>';
+        echo 'The Student Age is '.$this->age.'<br>';
     }
 
     private function studentPw(){
         echo 'The Password is '.$this->password.'<br>';
     }
 
-    protected function studentPw1(){
+    public function studentPw1(){
         $this->studentPw();
     }
 }
 
 class Employee extends Person{
-    public function show(){
-        echo 'Result <br>';
+    public function showAge(){
         $this->age = 20;
         $this->studentAge();
-        $this->password = '@priya#';
-        $this->studentPw1();
-
-
     }
+
+    // public function showPw(){
+    //     $this->studentPw1();
+    //     $this->password = '@priya#';
+    // }
     
 }
-$object = new Employee('Riya');
+$object = new Employee('Riya', '@riya#');
 $object->studentName();
-// $object->studentPw1();
-$object->show();
-
+$object->studentPw1();
+$object->showAge();
 
 ?>
